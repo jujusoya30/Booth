@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Photobooth – Every Click Tells a Story</title>
+  <meta name="description" content="Every Click Tells a Story. A free online photobooth that runs entirely in your browser: pick a layout, snap photos, decorate, and download. Your photos stay on your device.">
+  <meta name="theme-color" content="#ffd6e8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Photobooth">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta property="og:title" content="Photobooth – Every Click Tells a Story">
+  <meta property="og:description" content="A free online photobooth. Your photos stay on your device.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Patrick+Hand&family=VT323&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shown only inside the Instagram / Facebook in-app browsers -->
+  <div id="inAppBanner" class="inapp-banner" role="note" hidden>
+    <span>For the best experience, tap the ⋯ menu and choose Open in browser.</span>
+    <button id="btnInAppClose" class="inapp-close" aria-label="Dismiss tip">✕</button>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <a href="#/home" class="logo" aria-label="Photobooth home">
+      <span class="logo-icon" aria-hidden="true">📸</span>
+      <span class="logo-text">photobooth<span class="logo-heart" aria-hidden="true">♡</span></span>
+    </a>
+    <button class="btn btn-icon nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">☰</button>
+    <nav id="siteNav" class="site-nav" aria-label="Main">
+      <a href="#/home" data-link="home">Home</a>
+      <a href="#/layout" data-link="layout">Choose Layout</a>
+      <a href="#/about" data-link="about">About</a>
+      <a href="#/privacy" data-link="privacy">Privacy</a>
+      <a href="#/contact" data-link="contact">Contact</a>
+      <button id="btnInstall" class="btn btn-sm btn-mint" hidden>⬇ Install app</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============ HOME ============ -->
+    <section id="page-home" class="page" data-page="home" hidden>
+      <div class="hero">
+        <span class="deco d1" aria-hidden="true">✦</span>
+        <span class="deco d2" aria-hidden="true">♡</span>
+        <span class="deco d3" aria-hidden="true">✧</span>
+        <span class="deco d4" aria-hidden="true">♥</span>
+        <span class="deco d5" aria-hidden="true">✦</span>
+        <p class="hero-kicker">free online photobooth</p>
+        <h1 class="hero-title">Photobooth<span class="hero-heart" aria-hidden="true">♡</span></h1>
+        <p class="tagline">Every Click Tells a Story</p>
+        <button class="btn btn-primary btn-start" data-nav="layout">
+          <svg class="cam-svg" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false">
+            <path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h1.6l1.2-1.8A1.5 1.5 0 0 1 10.6 3.5h2.8a1.5 1.5 0 0 1 1.3.7L15.9 6h1.6A2.5 2.5 0 0 1 20 8.5v8A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5z" fill="#fff" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <circle cx="12" cy="12.3" r="3.6" fill="#e4d9ff" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17" cy="9" r=".9" fill="currentColor"/>
+          </svg>
+          START
+        </button>
+        <p class="hero-note">🔒 Your photos stay on your device.</p>
+      </div>
+
+      <div class="container features">
+        <article class="card feature tilt-l">
+          <div class="feature-emoji" aria-hidden="true">📸</div>
+          <h2>Strike a pose</h2>
+          <p>10‑second countdown, flash, and automatic shots. Or upload your own photos.</p>
+        </article>
+        <article class="card feature tilt-r">
+          <div class="feature-emoji" aria-hidden="true">🎀</div>
+          <h2>Make it cute</h2>
+          <p>100+ frame colors, filters, heart‑shaped photos, stickers and doodles.</p>
+        </article>
+        <article class="card feature tilt-l">
+          <div class="feature-emoji" aria-hidden="true">💌</div>
+          <h2>Share it</h2>
+          <p>Sharp PNG downloads sized for posts, squares and stories. No watermark.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CHOOSE LAYOUT ============ -->
+    <section id="page-layout" class="page" data-page="layout" hidden>
+      <div class="container">
+        <ol class="stepper" aria-label="Progress">
+          <li data-step="layout">Layout</li><li data-step="camera">Camera</li><li data-step="customize">Decorate</li><li data-step="download">Download</li>
+        </ol>
+        <h1 class="page-title">Choose your layout <span aria-hidden="true">✦</span></h1>
+        <p class="page-sub">Pick a strip, a grid, or a themed card. You can switch later.</p>
+        <div id="layoutGrid" class="layout-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ CAMERA ============ -->
+    <section id="page-camera" class="page" data-page="camera" hidden>
+      <div class="container">
+        <ol class="stepper" aria-label="Progress">
+          <li data-step="layout">Layout</li><li data-step="camera">Camera</li><li data-step="customize">Decorate</li><li data-step="download">Download</li>
+        </ol>
+        <h1 class="page-title">Smile! <span aria-hidden="true">📸</span></h1>
+        <p class="page-sub" id="camSub">We'll take your photos automatically with a countdown.</p>
+
+        <div class="cam-layout">
+          <div class="cam-stage">
+            <div class="cam-viewport" id="camViewport">
+              <video id="video" playsinline muted autoplay aria-label="Live camera preview"></video>
+              <div id="camStatus" class="cam-status" aria-live="polite"></div>
+              <div id="countdown" class="countdown" aria-live="assertive"></div>
+              <div id="flash" class="flash" aria-hidden="true"></div>
+              <div id="shotCounter" class="shot-counter" aria-live="polite"></div>
+              <div id="camError" class="cam-error" role="alert" hidden>
+                <div class="cam-error-emoji" aria-hidden="true">🙈</div>
+                <h2 id="camErrorTitle">Camera unavailable</h2>
+                <p id="camErrorText"></p>
+                <div class="cam-error-actions">
+                  <button id="btnCamRetry" class="btn">Try again</button>
+                  <button id="btnCamUpload" class="btn btn-primary">Upload photos</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cam-controls">
+              <button id="btnFlip" class="btn btn-icon-lg" aria-label="Flip camera" title="Flip camera" hidden>🔄</button>
+              <button id="btnShoot" class="btn btn-primary btn-shutter">📸 Start</button>
+              <button id="btnUpload" class="btn" aria-label="Upload photos from your device">🖼️ Upload</button>
+              <input type="file" id="fileUpload" accept="image/*" multiple hidden>
+            </div>
+
+            <div class="cam-options">
+              <label>Timer
+                <select id="timerSelect">
+                  <option value="3">3 sec</option>
+                  <option value="5">5 sec</option>
+                  <option value="10" selected>10 sec</option>
+                </select>
+              </label>
+              <label class="check"><input type="checkbox" id="soundToggle" checked> Sound</label>
+            </div>
+          </div>
+
+          <aside class="cam-side card">
+            <h2 class="side-title">Your shots</h2>
+            <div id="shotThumbs" class="shot-thumbs"></div>
+            <div class="cam-side-actions">
+              <button class="btn btn-sm" data-nav="layout">← Layout</button>
+              <button id="btnToCustomize" class="btn btn-primary" disabled>Next: Decorate →</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CUSTOMIZE ============ -->
+    <section id="page-customize" class="page" data-page="customize" hidden>
+      <div class="container container-wide">
+        <ol class="stepper" aria-label="Progress">
+          <li data-step="layout">Layout</li><li data-step="camera">Camera</li><li data-step="customize">Decorate</li><li data-step="download">Download</li>
+        </ol>
+        <div class="editor-bar">
+          <button class="btn btn-sm" data-nav="camera">← Camera</button>
+          <h1 class="page-title">Decorate <span aria-hidden="true">✦</span></h1>
+          <button class="btn btn-sm btn-primary" data-nav="download">Next →</button>
+        </div>
+
+        <div class="editor">
+          <div class="editor-preview" id="previewBox">
+            <div class="preview-wrap" id="previewWrap">
+              <canvas id="previewCanvas" role="img" aria-label="Preview of your photo strip"></canvas>
+              <div id="stickerLayer" class="sticker-layer"></div>
+              <div id="doodleLayer" class="doodle-layer" hidden aria-label="Drawing area"></div>
+            </div>
+          </div>
+
+          <div class="editor-tools">
+            <div class="tool-tabs" role="tablist" aria-label="Decorating tools">
+              <button role="tab" class="tool-tab" id="tab-frame" data-tab="frame" aria-controls="panel-frame" aria-selected="true"><span aria-hidden="true">🎨</span><span>Frame</span></button>
+              <button role="tab" class="tool-tab" id="tab-shape" data-tab="shape" aria-controls="panel-shape" aria-selected="false" tabindex="-1"><span aria-hidden="true">💗</span><span>Shape</span></button>
+              <button role="tab" class="tool-tab" id="tab-filter" data-tab="filter" aria-controls="panel-filter" aria-selected="false" tabindex="-1"><span aria-hidden="true">✨</span><span>Filter</span></button>
+              <button role="tab" class="tool-tab" id="tab-stickers" data-tab="stickers" aria-controls="panel-stickers" aria-selected="false" tabindex="-1"><span aria-hidden="true">🎀</span><span>Stickers</span></button>
+              <button role="tab" class="tool-tab" id="tab-doodle" data-tab="doodle" aria-controls="panel-doodle" aria-selected="false" tabindex="-1"><span aria-hidden="true">✏️</span><span>Doodle</span></button>
+              <button role="tab" class="tool-tab" id="tab-text" data-tab="text" aria-controls="panel-text" aria-selected="false" tabindex="-1"><span aria-hidden="true">🔤</span><span>Text</span></button>
+              <button role="tab" class="tool-tab" id="tab-photos" data-tab="photos" aria-controls="panel-photos" aria-selected="false" tabindex="-1"><span aria-hidden="true">🖼️</span><span>Photos</span></button>
+            </div>
+
+            <div class="tool-panels card">
+              <!-- Frame -->
+              <div role="tabpanel" id="panel-frame" class="tool-panel" aria-labelledby="tab-frame">
+                <div class="panel-head">
+                  <h2>Frame color</h2>
+                  <span class="muted small" id="colorCount"></span>
+                </div>
+                <label class="color-custom">Custom color
+                  <input type="color" id="customColor" value="#ffd6e8">
+                </label>
+                <div id="swatches" class="swatches" aria-label="Frame colors"></div>
+              </div>
+
+              <!-- Shape -->
+              <div role="tabpanel" id="panel-shape" class="tool-panel" aria-labelledby="tab-shape" hidden>
+                <h2>Photo shape</h2>
+                <div id="shapeOptions" class="opt-grid"></div>
+              </div>
+
+              <!-- Filter -->
+              <div role="tabpanel" id="panel-filter" class="tool-panel" aria-labelledby="tab-filter" hidden>
+                <h2>Filter</h2>
+                <div id="filterOptions" class="opt-grid filter-grid"></div>
+              </div>
+
+              <!-- Stickers -->
+              <div role="tabpanel" id="panel-stickers" class="tool-panel" aria-labelledby="tab-stickers" hidden>
+                <div class="panel-head">
+                  <h2>Stickers</h2>
+                  <button id="btnClearStickers" class="btn btn-sm">Remove all</button>
+                </div>
+                <p class="hint">Tap a sticker to add it. Drag to move, drag the ↻ corner to resize and rotate, or pinch with two fingers. ⇆ flips, ✕ deletes. Tap empty space to deselect.</p>
+                <div id="stickerPicker" class="sticker-picker"></div>
+              </div>
+
+              <!-- Doodle -->
+              <div role="tabpanel" id="panel-doodle" class="tool-panel" aria-labelledby="tab-doodle" hidden>
+                <div class="panel-head">
+                  <h2>Doodle</h2>
+                  <button id="btnDoodleToggle" class="btn btn-sm" aria-pressed="true">✏️ Drawing on</button>
+                </div>
+                <p class="hint">Draw right on the preview with your finger, stylus, or mouse.</p>
+                <div class="opt-row" role="group" aria-label="Brush type">
+                  <button class="opt" data-dmode="pen" aria-pressed="true">🖊️ Pen</button>
+                  <button class="opt" data-dmode="eraser" aria-pressed="false">🧽 Eraser</button>
+                </div>
+                <div id="doodleColors" class="swatches swatches-sm" aria-label="Pen colors"></div>
+                <label class="color-custom">Custom pen color <input type="color" id="doodleCustom" value="#ff6fae"></label>
+                <label class="range">Brush size <input type="range" id="brushSize" min="2" max="40" value="8"> <output id="brushOut">8</output></label>
+                <div class="opt-row">
+                  <button id="btnUndo" class="btn btn-sm">↶ Undo</button>
+                  <button id="btnClearDoodle" class="btn btn-sm">🗑 Clear doodles</button>
+                </div>
+              </div>
+
+              <!-- Text -->
+              <div role="tabpanel" id="panel-text" class="tool-panel" aria-labelledby="tab-text" hidden>
+                <!-- Student ID layout only -->
+                <div id="idPanel" hidden>
+                  <h2>ID card details</h2>
+                  <p class="hint">Change any label (left) or value (right). Empty boxes use the grey example. 🎲 picks a new ID number; every new photo also gets one.</p>
+                  <label class="field">Header
+                    <input type="text" id="idHeader" maxlength="32" placeholder=">> PHOTOBOOTH ACADEMY :" autocomplete="off">
+                  </label>
+                  <div id="idRows" class="id-rows"></div>
+                  <label class="check"><input type="checkbox" id="idSignature" checked> Signature (written from the name)</label>
+                  <p class="hint">Want your real signature? Turn this off and sign with the Doodle tool. The small caption below shows in the top band.</p>
+                </div>
+                <!-- Strips, grid and polaroid -->
+                <div id="stripTextPanel">
+                  <h2>Caption &amp; date</h2>
+                  <label class="field">Caption
+                    <input type="text" id="captionInput" maxlength="40" placeholder="best friends forever ♡" autocomplete="off">
+                  </label>
+                  <label class="check"><input type="checkbox" id="dateToggle" checked> Show date stamp</label>
+                  <label class="field">Date style
+                    <select id="dateFormat">
+                      <option value="dots">10.20.2026</option>
+                      <option value="long">Oct 20, 2026</option>
+                      <option value="iso">2026.10.20</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="check"><input type="checkbox" id="taglineToggle" checked> Show small bottom caption</label>
+                <label class="field">Bottom caption text <span class="muted small">(replace with your own words)</span>
+                  <input type="text" id="taglineInput" maxlength="40" placeholder="Every Click Tells a Story" autocomplete="off">
+                </label>
+              </div>
+
+              <!-- Photos / layout -->
+              <div role="tabpanel" id="panel-photos" class="tool-panel" aria-labelledby="tab-photos" hidden>
+                <h2>Layout</h2>
+                <div id="layoutPicker" class="opt-grid"></div>
+                <div class="panel-head">
+                  <h2>Photo order</h2>
+                  <button id="btnAddPhotos" class="btn btn-sm">🖼️ Upload</button>
+                </div>
+                <div id="missingNote" class="note" hidden></div>
+                <ol id="photoList" class="photo-list"></ol>
+                <input type="file" id="replaceInput" accept="image/*" hidden>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section id="page-download" class="page" data-page="download" hidden>
+      <div class="container">
+        <ol class="stepper" aria-label="Progress">
+          <li data-step="layout">Layout</li><li data-step="camera">Camera</li><li data-step="customize">Decorate</li><li data-step="download">Download</li>
+        </ol>
+        <h1 class="page-title">Download &amp; share <span aria-hidden="true">💌</span></h1>
+        <div class="dl-layout">
+          <div class="dl-preview card">
+            <div class="dl-img-wrap"><img id="exportPreview" alt="Preview of the image you will download"></div>
+            <p id="exportInfo" class="muted small" aria-live="polite"></p>
+          </div>
+
+          <div class="dl-options card">
+            <fieldset>
+              <legend>Size</legend>
+              <div id="sizeOptions" class="size-options"></div>
+            </fieldset>
+
+            <fieldset id="bgFieldset" hidden>
+              <legend>Background color</legend>
+              <div id="bgSwatches" class="swatches swatches-sm"></div>
+              <label class="color-custom">Custom <input type="color" id="bgCustom" value="#fff0f6"></label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Format</legend>
+              <div class="seg">
+                <label><input type="radio" name="fmt" value="png" checked> <span>PNG <small>best quality</small></span></label>
+                <label><input type="radio" name="fmt" value="jpg"> <span>JPG <small>smaller file</small></span></label>
+              </div>
+            </fieldset>
+
+            <label class="check"><input type="checkbox" id="dlTaglineToggle" checked> Show small bottom caption</label>
+            <label class="field">Bottom caption text
+              <input type="text" id="dlTaglineInput" maxlength="40" placeholder="Every Click Tells a Story" autocomplete="off">
+            </label>
+
+            <div class="dl-actions">
+              <button id="btnDownload" class="btn btn-primary btn-big">⬇ Download</button>
+              <button id="btnViewPhoto" class="btn btn-primary btn-big" hidden>🖼️ View photo to save</button>
+              <button id="btnShare" class="btn btn-big">📤 Share</button>
+            </div>
+            <p id="iosHint" class="tip" hidden><span aria-hidden="true">📱</span> To save to Photos, tap Share, then Save Image.</p>
+            <button id="btnOpenImage" class="link-btn">Download didn't start? Open the image</button>
+            <p class="hint save-note"><span aria-hidden="true">💡</span> On iPhone: tap Share → Save Image. If you're in Instagram or Facebook, press and hold the photo to save.</p>
+
+            <details class="video-box">
+              <summary>Bonus: slideshow video of your session 🎬</summary>
+              <p class="hint">Makes a short video of your shots, ending on your finished strip.</p>
+              <button id="btnVideo" class="btn">🎬 Create video</button>
+              <video id="videoOut" controls playsinline hidden></video>
+              <div id="videoActions" class="opt-row" hidden>
+                <button id="btnVideoDownload" class="btn btn-sm">⬇ Download video</button>
+                <button id="btnVideoShare" class="btn btn-sm">📤 Share video</button>
+              </div>
+            </details>
+
+            <div class="dl-footer">
+              <button class="btn btn-sm" data-nav="customize">← Keep decorating</button>
+              <button id="btnStartOver" class="btn btn-sm">↺ Start over</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="page-about" class="page" data-page="about" hidden>
+      <div class="container narrow">
+        <h1 class="page-title">About <span aria-hidden="true">♡</span></h1>
+        <div class="card prose">
+          <p><strong>Every Click Tells a Story.</strong> Photobooth is a free online photo booth that lives entirely in your browser. Pick a layout, take your photos with a countdown, decorate them with colors, stickers and doodles, then download a crisp strip that's ready to post.</p>
+          <h2>How it works</h2>
+          <ol>
+            <li>Choose a layout: 2, 3 or 4‑cut strips, a 2×2 grid, a polaroid or a student ID card.</li>
+            <li>Allow the camera (or upload photos).</li>
+            <li>Pose during the countdown (10 seconds per shot, or pick 3 or 5).</li>
+            <li>Decorate: frame colors, shapes, filters, stickers, doodles and captions.</li>
+            <li>Download or share in the size you need.</li>
+          </ol>
+          <h2>Add it to your home screen</h2>
+          <p>On Android or desktop Chrome/Edge, use the “Install app” button or the browser menu. On iPhone or iPad, tap the Share button in Safari, then “Add to Home Screen”.</p>
+          <p class="muted">No accounts, no uploads, no watermark.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section id="page-privacy" class="page" data-page="privacy" hidden>
+      <div class="container narrow">
+        <h1 class="page-title">Privacy Policy <span aria-hidden="true">🔒</span></h1>
+        <div class="card prose">
+          <p class="big-note">Your photos stay on your device.</p>
+          <ul>
+            <li>Photos are captured and edited inside your browser. They are never uploaded to a server.</li>
+            <li>The camera is used only while you're on the camera page, and it turns off when you leave.</li>
+            <li>We don't use accounts, analytics or advertising trackers.</li>
+            <li>The only things saved in your browser's local storage are small preferences, like whether you've seen the welcome guide.</li>
+            <li>Fonts are loaded from Google Fonts, which receives a standard web request (no photos).</li>
+            <li>When you use Share, your image goes only to the app you choose on your device.</li>
+          </ul>
+          <p class="muted small">Last updated: October 2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="page-contact" class="page" data-page="contact" hidden>
+      <div class="container narrow">
+        <h1 class="page-title">Contact <span aria-hidden="true">💌</span></h1>
+        <div class="card prose">
+          <p>Questions, ideas or bugs? Send a note. This form opens your email app; nothing is sent from this website.</p>
+          <form id="contactForm" class="contact-form">
+            <label class="field">Your name <input type="text" name="name" autocomplete="name" required></label>
+            <label class="field">Message <textarea name="message" rows="5" required></textarea></label>
+            <button class="btn btn-primary" type="submit">Open email app ✉️</button>
+          </form>
+          <p class="muted small">Or email <a id="contactEmail" href="mailto:hello@example.com">hello@example.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <p class="footer-tagline">✦ Every Click Tells a Story ✦</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#/about">About</a>
+      <a href="#/privacy">Privacy Policy</a>
+      <a href="#/contact">Contact</a>
+      <button class="link-btn" id="btnOpenGuide">Website guide</button>
+      <button class="link-btn" id="btnOpenNews">What's new</button>
+    </nav>
+    <p class="muted small">Your photos stay on your device.</p>
+  </footer>
+
+  <!-- ============ MODALS ============ -->
+  <div class="modal" id="whatsNewModal" role="dialog" aria-modal="true" aria-labelledby="wnTitle" hidden>
+    <div class="modal-card">
+      <button class="modal-x" data-close aria-label="Close">✕</button>
+      <h2 id="wnTitle">What's New <span aria-hidden="true">✦</span></h2>
+      <ul class="wn-list">
+        <li><span aria-hidden="true">🔄</span> Flip between front and back cameras</li>
+        <li><span aria-hidden="true">📱</span> Export sizes for posts, squares and stories</li>
+        <li><span aria-hidden="true">📤</span> One‑tap Share to Instagram, Messenger and more</li>
+        <li><span aria-hidden="true">🎀</span> Stickers you can pinch, spin and flip</li>
+        <li><span aria-hidden="true">🎬</span> Slideshow video of your session</li>
+        <li><span aria-hidden="true">⬇</span> Install it to your home screen</li>
+      </ul>
+      <div class="modal-actions">
+        <button class="btn" data-close>Maybe later</button>
+        <button class="btn btn-primary" id="btnStartGuide">Show me around →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="guideModal" role="dialog" aria-modal="true" aria-labelledby="guideTitle" hidden>
+    <div class="modal-card guide-card">
+      <button class="modal-x" data-close aria-label="Close guide">✕</button>
+      <p class="guide-count" id="guideCount"></p>
+      <div class="guide-emoji" id="guideEmoji" aria-hidden="true"></div>
+      <h2 id="guideTitle"></h2>
+      <p id="guideText"></p>
+      <div class="guide-dots" id="guideDots" aria-hidden="true"></div>
+      <div class="modal-actions">
+        <button id="guidePrev" class="btn">Back</button>
+        <button id="guideNext" class="btn btn-primary">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full-screen photo view: long-press to save (in-app browsers + fallback) -->
+  <div class="modal modal-full" id="imageModal" role="dialog" aria-modal="true" aria-labelledby="imgModalTitle" hidden>
+    <div class="photo-view">
+      <div class="photo-view-bar">
+        <h2 id="imgModalTitle" class="photo-view-msg">Press and hold the photo, then tap Save to Photos.</h2>
+        <button class="btn btn-sm" data-close>✕ Close</button>
+      </div>
+      <div class="photo-view-body">
+        <img id="imageModalImg" alt="Your finished photobooth image">
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/layouts.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/export.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

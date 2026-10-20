@@ -1,0 +1,3 @@
+# Editor and local tool folders (not part of the website)
+.vscode/
+oracleJdk-27/
